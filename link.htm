@@ -9,26 +9,26 @@
         <p id="sURL">URL</p>
     </body>
 <script>
-var m=location.search.match(/key=([^&=]*)/);
-if(m===null){
+var linksData={
+    "HelpDoc":"https://github.com/lxfly2000/pxfmaker-res/wiki",
+    "RateApp":"https://github.com/lxfly2000/pxfmaker-res/wiki",
+    "ReportFeedback":"https://github.com/lxfly2000/pxfmaker-res/wiki"
+};
+
+var keyMatch=location.search.match(/key=([^&=]*)/);
+var langMatch=location.search.match(/lang=([^&=]*)/);//zh_CN,zh_TW,en,ja
+var platformMatch=location.search.match(/platform=([^&=]*)/);//Android,iOS,Steam,AnyPlatform
+if(keyMatch===null){
     document.body.innerText="No URL specified.";
 }else{
-    var redirectKey=decodeURIComponent(m[1]);
+    var redirectKey=decodeURIComponent(keyMatch[1]);
     sURL.innerText=redirectKey;
-    var xhr=new XMLHttpRequest();
-    xhr.open("GET","linksdata.json",true);
-    xhr.onreadystatechange=function(){
-        if(xhr.readyState===4&&xhr.status===200){
-            var linksdata=JSON.parse(xhr.responseText);
-            if(linksdata[redirectKey]===null||linksdata[redirectKey]===undefined){
-                document.body.innerText="No URL for “"+redirectKey+"”.";
-            }else{
-                sURL.innerHTML="<a href=\""+linksdata[redirectKey]+"\">"+linksdata[redirectKey]+"</a>";
-                location.href=linksdata[redirectKey];
-            }
-        }
+    if(linksData[redirectKey]===null||linksData[redirectKey]===undefined){
+        document.body.innerText="No URL for “"+redirectKey+"”.";
+    }else{
+        sURL.innerHTML="<a href=\""+linksData[redirectKey]+"\">"+linksData[redirectKey]+"</a>";
+        location.href=linksData[redirectKey];
     }
-    xhr.send();
 }
 </script>
 </html>
