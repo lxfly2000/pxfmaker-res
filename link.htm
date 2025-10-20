@@ -9,7 +9,7 @@
         <p id="sURL">URL</p>
     </body>
 <script>
-var m=location.search.match(/key=(.*)&?/);
+var m=location.search.match(/key=([^&=]*)/);
 if(m===null){
     document.body.innerText="No URL specified.";
 }else{
