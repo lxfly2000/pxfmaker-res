@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no"/>
+        <title>Link Redirector</title>
+    </head>
+    <body>
+        <p>Redirect to:</p>
+        <p id="sURL">URL</p>
+    </body>
+<script>
+var m=location.search.match(/key=(.*)&?/);
+if(m===null){
+    document.body.innerText="No URL specified.";
+}else{
+    var redirectKey=decodeURIComponent(m[1]);
+    sURL.innerText=redirectKey;
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET","linksdata.json",true);
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===4&&xhr.status===200){
+            var linksdata=JSON.parse(xhr.responseText);
+            if(linksdata[redirectKey]===null||linksdata[redirectKey]===undefined){
+                document.body.innerText="No URL for “"+redirectKey+"”.";
+            }else{
+                sURL.innerHTML="<a href=\""+linksdata[redirectKey]+"\">"+linksdata[redirectKey]+"</a>";
+                location.href=linksdata[redirectKey];
+            }
+        }
+    }
+    xhr.send();
+}
+</script>
+</html>
