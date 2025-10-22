@@ -3,10 +3,12 @@ description: Feedback issue template
 title: 'Title 标题'
 labels: ["feedback"]
 body:
-  - type: combobox
+  - type: dropdown
     attributes:
-      value: Bug Report
-      value: Suggestion
+      label: Issue type 问题类型
+      options:
+        - Bug report Bug反馈
+        - Suggestion 建议
     validations:
       required: true
   - type: input
