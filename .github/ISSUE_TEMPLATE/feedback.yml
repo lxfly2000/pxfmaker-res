@@ -1,6 +1,5 @@
 name: Feedback
 description: Feedback issue template
-title: 'Title 标题'
 labels: ["feedback"]
 body:
   - type: dropdown
