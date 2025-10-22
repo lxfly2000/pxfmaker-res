@@ -14,12 +14,16 @@ body:
   - type: input
     attributes:
       label: Operating System 操作系统
-      description: The operating system you are using. 输入您的操作系统名称。
+      description: |
+        The operating system you are using.
+        输入您的操作系统名称。
     validations:
       required: true
   - type: textarea
     attributes:
       label: Details 详细说明
-      description: Describe your issue or suggestion. 详细说明您遇到的问题或建议。
+      description: |
+        Describe your issue or suggestion.
+        详细说明您遇到的问题或建议。
     validations:
       required: true
