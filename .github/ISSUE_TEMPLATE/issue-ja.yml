@@ -33,7 +33,7 @@ body:
     attributes:
       label: OS
       description: ご使用のOSとバージョンを記入してください。
-      placeholder: "例: Windows 10, Android 11, iOS 15"
+      placeholder: 例：Windows 10, Android 11, iOS 15
     validations:
       required: true
   - type: textarea
