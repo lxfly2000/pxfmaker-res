@@ -1,4 +1,4 @@
-name: Issue
+name: Issue繁體中文
 description: Issue模板
 body:
   - type: dropdown

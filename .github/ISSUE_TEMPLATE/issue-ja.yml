@@ -1,4 +1,4 @@
-name: Issue
+name: Issue日本語
 description: Issueテンプレート
 body:
   - type: dropdown
