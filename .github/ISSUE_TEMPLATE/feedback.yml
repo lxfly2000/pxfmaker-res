@@ -4,25 +4,27 @@ labels: ["feedback"]
 body:
   - type: dropdown
     attributes:
-      label: Issue type 问题类型
+      label: 问题类型 Issue type Issueタイプ
       options:
-        - Bug report Bug反馈
-        - Suggestion 建议
+        - Bug反馈 Bug report Bug報告
+        - 建议 Suggestion 提案
     validations:
       required: true
   - type: input
     attributes:
-      label: Operating System 操作系统
+      label: 操作系统 Operating System OS
       description: |
-        The operating system you are using.
         输入您的操作系统名称。
+        The operating system you are using.
+        ご使用のOSを入力してください。
     validations:
       required: true
   - type: textarea
     attributes:
-      label: Details 详细说明
+      label: 详细说明 Details 詳細
       description: |
-        Describe your issue or suggestion.
         详细说明您遇到的问题或建议。
+        Describe your issue or suggestion.
+        あなたの問題や提案を説明してください。
     validations:
       required: true
