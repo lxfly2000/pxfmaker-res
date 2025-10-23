@@ -1,0 +1,42 @@
+name: Issue
+description: Issue模板
+body:
+  - type: dropdown
+    attributes:
+      label: 问题类型
+      options:
+        - Bug报告
+        - 建议
+        - 其他
+    validations:
+      required: true
+  - type: dropdown
+    id: store
+    attributes:
+      label: 下载来源
+      options:
+        - Microsoft Store
+        - Steam
+        - Google Play
+        - App Store
+        - 其他
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: 若是其他，请说明
+    validations:
+      required: false
+  - type: input
+    id: os
+    attributes:
+      label: 操作系统
+      description: 输入您的操作系统名称和版本。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 详细说明
+      description: 详细说明您遇到的问题或建议。
+    validations:
+      required: true

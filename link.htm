@@ -12,7 +12,7 @@
 var linksData={
     "HelpDoc":"https://github.com/lxfly2000/pxfmaker-res/wiki",
     "RateApp":"https://github.com/lxfly2000/pxfmaker-res/wiki",
-    "ReportFeedback":"https://github.com/lxfly2000/pxfmaker-res/issues/new?template=feedback.yml",
+    "ReportFeedback":"https://github.com/lxfly2000/pxfmaker-res/issues/new?template=issue{lang}.yml&os={os}&store={store}",
     "WhatIsCell":"https://github.com/lxfly2000/pxfmaker-res/wiki"
 };
 
@@ -27,8 +27,43 @@ if(keyMatch===null){
     if(linksData[redirectKey]===null||linksData[redirectKey]===undefined){
         document.body.innerText="No URL for “"+redirectKey+"”.";
     }else{
-        sURL.innerHTML="<a href=\""+linksData[redirectKey]+"\">"+linksData[redirectKey]+"</a>";
-        location.href=linksData[redirectKey];
+        var link=linksData[redirectKey];
+        if(redirectKey==="ReportFeedback"){
+            var lang="";
+            if(langMatch!==null){
+                var langParam=decodeURIComponent(langMatch[1]);
+                if(langParam==="zh_CN"||langParam==="zh_TW"||langParam==="ja"){
+                    lang="-"+langParam;
+                }
+            }
+            var os="";
+            var store="";
+            if(platformMatch!==null){
+                var platformParam=decodeURIComponent(platformMatch[1]);
+                switch(platformParam){
+                    case "Android":
+                        os="Android";
+                        store="Google%20Play";
+                        break;
+                    case "iOS":
+                        os="iOS";
+                        store="App%20Store";
+                        break;
+                    case "Steam":
+                        os="";
+                        store="Steam";
+                        break;
+                    case "AnyPlatform":
+                    default:
+                        os="";
+                        store="";
+                        break;
+                }
+            }
+            link=link.replace("{lang}",lang).replace("{os}",os).replace("{store}",store);
+        }
+        sURL.innerHTML="<a href=\""+link+"\">"+link+"</a>";
+        location.href=link;
     }
 }
 </script>

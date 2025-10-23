@@ -1,0 +1,42 @@
+name: Issue
+description: Issue模板
+body:
+  - type: dropdown
+    attributes:
+      label: 問題類型
+      options:
+        - Bug報告
+        - 建議
+        - 其他
+    validations:
+      required: true
+  - type: dropdown
+    id: store
+    attributes:
+      label: 下載來源
+      options:
+        - Microsoft Store
+        - Steam
+        - Google Play
+        - App Store
+        - 其他
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: 若是其他，請說明
+    validations:
+      required: false
+  - type: input
+    id: os
+    attributes:
+      label: 作業系統
+      description: 輸入您的作業系統名稱和版本。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 詳細說明
+      description: 詳細說明您遇到的問題或建議。
+    validations:
+      required: true

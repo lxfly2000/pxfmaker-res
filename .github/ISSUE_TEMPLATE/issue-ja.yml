@@ -1,0 +1,42 @@
+name: Issue
+description: Issueテンプレート
+body:
+  - type: dropdown
+    attributes:
+      label: Issueタイプ
+      options:
+        - Bug報告
+        - 提案
+        - その他
+    validations:
+      required: true
+  - type: dropdown
+    id: store
+    attributes:
+      label: ダウンロード元
+      options:
+        - Microsoft Store
+        - Steam
+        - Google Play
+        - App Store
+        - その他
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: 「その他」の場合、ダウンロード元を記入してください。
+    validations:
+      required: false
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: ご使用のOSとバージョンを記入してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 詳細
+      description: あなたの問題や提案を詳しく説明してください。
+    validations:
+      required: true
