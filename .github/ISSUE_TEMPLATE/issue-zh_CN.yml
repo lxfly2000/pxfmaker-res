@@ -20,6 +20,7 @@ body:
         - Google Play
         - App Store
         - 其他
+      default: 4
     validations:
       required: true
   - type: input
@@ -32,6 +33,7 @@ body:
     attributes:
       label: 操作系统
       description: 输入您的操作系统名称和版本。
+      placeholder: 例如 Windows 10, Android 11, iOS 15
     validations:
       required: true
   - type: textarea

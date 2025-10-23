@@ -20,6 +20,7 @@ body:
         - Google Play
         - App Store
         - Other
+      default: 4
     validations:
       required: true
   - type: input
@@ -32,6 +33,7 @@ body:
     attributes:
       label: Operating System
       description: The operating system and version you are using.
+      placeholder: e.g., Windows 10, Android 11, iOS 15
     validations:
       required: true
   - type: textarea
