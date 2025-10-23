@@ -18,7 +18,7 @@ body:
         - Microsoft Store
         - Steam
         - Google Play
-        - App Store
+        - Apple App Store
         - Other
       default: 4
     validations:
