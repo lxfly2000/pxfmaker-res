@@ -11,7 +11,6 @@
 <script>
 var linksData={
     "HelpDoc":"https://github.com/lxfly2000/pxfmaker-res/wiki",
-    "RateApp":"https://store.steampowered.com/app/4145460",
     "ReportFeedback":"https://github.com/lxfly2000/pxfmaker-res/issues/new?template=issue{lang}.yml&os={os}",//store={store}"无法使用
     "WhatIsCell":"https://github.com/lxfly2000/pxfmaker-res/wiki/%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E5%AE%BD%E5%BA%A6%E5%92%8C%E9%AB%98%E5%BA%A6",
     "ExportFontFile":"https://github.com/lxfly2000/pxfmaker-res/wiki/%E4%BD%BF%E7%94%A8FontForge%E5%A4%84%E7%90%86%E5%AF%BC%E5%87%BA%E7%9A%84%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6",
@@ -63,6 +62,25 @@ if(keyMatch===null){
                 }
             }
             link=link.replace("{lang}",lang).replace("{os}",os).replace("{store}",store);
+        }else if(redirectKey==="RateApp"){
+            if(platformMatch!==null){
+                var platformParam=decodeURIComponent(platformMatch[1]);
+                switch(platformParam){
+                    case "Android":
+                        link="https://play.google.com/store/apps/details?id=com.lxfly2000.pxfmaker&reviewId=0";
+                        break;
+                    /*case "iOS":
+                        link="itms-apps://itunes.apple.com/app/id1531762332?action=write-review";
+                        break;*/
+                    case "Steam":
+                        link="https://store.steampowered.com/app/4145460#app_reviews_hash";
+                        break;
+                    case "AnyPlatform":
+                    default:
+                        link=linksData.HelpDoc;
+                        break;
+                }
+            }
         }
         sURL.innerHTML="<a href=\""+link+"\">"+link+"</a>";
         location.href=link;
